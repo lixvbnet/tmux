@@ -397,12 +397,12 @@ format_job_get(struct format_expand_state *es, const char *cmd)
 		    format_job_complete, NULL, fj, JOB_NOWAIT, -1, -1);
 		if (fj->job == NULL) {
 			free(fj->out);
-			xasprintf(&fj->out, "<'%s' didn't start>", fj->cmd);
+			xasprintf(&fj->out, "<didn't start>");
 		}
 		fj->last = t;
 		fj->updated = 0;
 	} else if (fj->job != NULL && (t - fj->last) > 1 && fj->out == NULL)
-		xasprintf(&fj->out, "<'%s' not ready>", fj->cmd);
+		xasprintf(&fj->out, "<not ready>");
 	free(expanded);
 
 	if (ft->flags & FORMAT_STATUS)

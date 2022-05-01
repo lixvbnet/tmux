@@ -46,10 +46,17 @@ To get and build the latest from version control - note that this requires
 `autoconf`, `automake` and `pkg-config`:
 
 ~~~bash
-git clone https://github.com/tmux/tmux.git
+brew remove tmux
+
+git clone https://github.com/lixvbnet/tmux.git
 cd tmux
+# Optionally, do some changes if necessary.
+
+# Compile and install
+brew install autoconf automake pkg-config
 sh autogen.sh
-./configure && make
+./configure --enable-utf8proc && make
+make install
 ~~~
 
 ## Contributing
